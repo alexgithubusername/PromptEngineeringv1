@@ -1,0 +1,1310 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2 class="r-fit-text">Prompt Engineering for AI in Medical Education</h2>
+					<img src="examples/assets/alex-headshot.jpeg" alt="Dr. Alex Dummett Headshot" style="width:140px;height:140px;border-radius:50%;object-fit:cover;box-shadow:0 2px 8px rgba(0,0,0,0.2);margin-bottom:16px;" />
+					<h1 class="r-fit-text">Dr. Alex Dummett, MD, FACP, CPPS, AIABM, ABIM & ABPM-CI</h1>
+					<p>Founder, Healthcare AI Consulting, LLC</p>
+					<p>Former APD IM Res & Quality Fellowship</p>
+					<ul style="font-size: 0.75em; max-width: 900px; margin: 0 auto;">
+						<li>Clinical Informatics, Expert in predictive analytics, AI, and patient safety, quality improvement, and clinical innovation</li>
+					</ul>
+					<p><a href="https://www.linkedin.com/in/alexdummett/" target="_blank">LinkedIn Profile</a></p>
+				</section>
+				<section>
+					<h2 class="r-fit-text">AI Disclosures: Created By</h2>
+					<ul style="font-size: 0.7em; max-width: 900px; margin: 0 auto;">
+						<li>All ideas, themes, and final content were independently created by me; this presentation represents my vision of the future of internal medicine with AI integration.</li>
+						<li>Gamma.app assisted with the layout of the content and generation of a few images used in these slides.</li>
+						<li>Google Gemini and ChatGPT helped structure my initial ideas into an organized outline.</li>
+						<li>ChatGPT supported clarification of some complex concepts during the development process.</li>
+						<li>ChatGPT, Claude, Google Gemini, and locally run models (downloaded via Ollama, including Storm AI developed at Stanford) provided feedback on slide order, presentation flow, and consistency.</li>
+						<li>
+							<strong>AI Tools Used:</strong>
+							<div style="display: flex; align-items: center; gap: 18px; margin: 10px 0;">
+								<span style="background: #fff; padding: 10px 16px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); display: flex; align-items: center;">
+									<img src="examples/assets/ChatGPT-Logo.png" alt="ChatGPT Logo" style="height:34px; border-radius:6px; background:#fff;" />
+								</span>
+								<span style="background: #fff; padding: 10px 16px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); display: flex; align-items: center;">
+									<img src="examples/assets/gemini-logo.png" alt="Gemini Logo" style="height:34px; border-radius:6px; background:#fff;" />
+								</span>
+								<span style="background: #fff; padding: 10px 16px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); display: flex; align-items: center;">
+									<img src="examples/assets/Anthropic-AI.png" alt="Anthropic Logo" style="height:34px; border-radius:6px; background:#fff;" />
+								</span>
+								<span style="background: #fff; padding: 10px 16px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); display: flex; align-items: center;">
+									<img src="examples/assets/notebooklm_Logo.png" alt="NotebookLM Logo" style="height:34px; border-radius:6px; background:#fff;" />
+								</span>
+							</div>
+							<span style="font-size:0.85em;">Tools used: ChatGPT, Gemini, Anthropic, NotebookLM, Claude, Storm AI (Stanford), Ollama, Gamma.app.</span>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2 class="r-fit-text">AI Disclosures: Consulting Companies</h2>
+					<ul style="font-size: 0.7em; max-width: 900px; margin: 0 auto;">
+						<li>I receive payment as a consultant from the following companies:</li>
+						<div style="display: flex; align-items: center; gap: 18px; margin: 10px 0;">
+							<span style="background: #fff; padding: 10px 16px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); display: flex; align-items: center;">
+								<img src="examples/assets/PYA_LOGO.jpg" alt="PYA Logo" style="height:34px; border-radius:6px; background:#fff;" />
+							</span>
+							<span style="background: #fff; padding: 10px 16px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); display: flex; align-items: center;">
+								<img src="examples/assets/FORMD_logo.png" alt="FORMD Logo" style="height:34px; border-radius:6px; background:#fff;" />
+							</span>
+							<span style="background: #fff; padding: 10px 16px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); display: flex; align-items: center;">
+								<img src="examples/assets/AVO_LOGO.png" alt="AVO Logo" style="height:34px; border-radius:6px; background:#fff;" />
+							</span>
+						</div>
+						<li>All consulting relationships are disclosed for transparency.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2 class="r-fit-text">AI Disclosures: Clinical Work</h2>
+					<ul style="font-size: 0.7em; max-width: 900px; margin: 0 auto;">
+						<li>Currently, I practice clinical telemedicine for Nav Health.</li>
+						<div style="display: flex; align-items: center; gap: 18px; margin: 10px 0; background: #111; padding: 12px 18px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.12); width: fit-content;">
+							<img src="examples/assets/NAV_LOGO.png" alt="Nav Health Logo" style="height:34px; border-radius:6px; background:#111;" />
+						</div>
+						<li>Formerly a hospitalist at KP (Kaiser Permanente) for 17 years; no longer affiliated with KP.</li>
+					</ul>
+				</section>
+        <section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh;">
+          <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+            <img data-src="examples/assets/1_Intern-and-AI.png" alt="Intern and AI Comparison" style="max-width: 100%; max-height: 40vh; border-radius: 12px; margin-bottom: 24px;" />
+            <a href="#" target="_blank" style="color:#B5533C; font-weight:bold; text-decoration:underline;">Intern and AI Comparison - Source Link</a>
+          </div>
+        </section>
+        <section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh;">
+          <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+            <img data-src="examples/assets/2_Clinical-Reasoning-Pitfalls.png" alt="Clinical Reasoning Pitfalls" style="max-width: 100%; max-height: 40vh; border-radius: 12px; margin-bottom: 24px;" />
+            <a href="#" target="_blank" style="color:#B5533C; font-weight:bold; text-decoration:underline;">Clinical Reasoning Pitfalls - Source Link</a>
+          </div>
+        </section>
+        <section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh;">
+          <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+            <img data-src="examples/assets/3_Interns-vs-AI-in-Healthcare.png" alt="Interns vs AI in Healthcare" style="max-width: 100%; max-height: 40vh; border-radius: 12px; margin-bottom: 24px;" />
+            <a href="#" target="_blank" style="color:#B5533C; font-weight:bold; text-decoration:underline;">Interns vs AI in Healthcare - Source Link</a>
+          </div>
+        </section>
+        <section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh;">
+          <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+            <img data-src="examples/assets/4_Medical-Educator.png" alt="Medical Educator Slide" style="max-width: 100%; max-height: 40vh; border-radius: 12px; margin-bottom: 24px;" />
+            <a href="#" target="_blank" style="color:#B5533C; font-weight:bold; text-decoration:underline;">Medical Educator Slide - Source Link</a>
+          </div>
+        </section>
+				
+        <section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh;">
+          <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+            <img data-src="examples/assets/qr code.png" alt="QR Code Access" style="max-width: 100%; max-height: 40vh; border-radius: 12px; margin-bottom: 24px;" />
+            <a href="#" target="_blank" style="color:#B5533C; font-weight:bold; text-decoration:underline;">Intro to Prompt Engineering - Generative AI</a>
+          </div>
+        </section>
+<section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+      <img data-src="examples/assets/EPOCHS.JPEG" alt="EPOCHS" style="max-width: 100%; max-height: 40vh; border-radius: 12px; margin-bottom: 24px;" />
+         <a href="https://jamanetwork.com/journals/jama/fullarticle/2813874" target="_blank" style="color:#B5533C; font-weight:bold; text-decoration:underline;">EPOCHS (JAMA Article)</a>
+    </div>
+  </section>
+				
+
+<section data-background="#fff3f3" data-background-transition="zoom">
+  <h2 class="r-fit-text"><span style="color:#B5533C;">Generative AI</span></h2>
+  <ul style="font-size: 1em; max-width: 900px; margin: 0 auto;">
+    <li><span style="color:#B5533C; font-weight:bold;">Generative AI</span> – a form of artificial intelligence (AI) that creates new content by looking at patterns and structures in the sample data.</li>
+  </ul>
+</section>
+<section data-background="#fff3f3" data-background-transition="zoom">
+  <h3 class="r-fit-text"><span style="color:#B5533C;">Large Language Models</span></h3>
+  <ul style="font-size: 1em; max-width: 700px; margin: 0 auto;">
+    <li><span style="color:#B5533C; font-weight:bold;" class="r-fit-text"></span> LLM– Large language model that can efficiently understand, summarize, generate and predict text.</li>
+  </ul>
+</section>
+<section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh;">
+    <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+      <h2 style="color: #7B3F00; text-align: center; margin-bottom: 20px;">LLM "Hello World"</h2>
+      <img src="examples/assets/hello.webp" alt="Hello World Output" style="max-width: 80%; max-height: 70vh; object-fit: contain; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.1);">
+      <p style="color: #444; font-size: 0.95rem; margin-top: 15px; text-align: center;">A simple illustration showing the first output of a language model—"Hello, world!"</p>
+    </div>
+  </section>
+<section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh;">
+    <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+      <h2 style="color: #7B3F00; text-align: center; margin-bottom: 20px;">How a Tokenizer Works</h2>
+      <img src="examples/assets/Tokenizer.png" alt="Tokenizer Illustration" style="max-width: 80%; max-height: 70vh; object-fit: contain; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.1);">
+      <p style="color: #444; font-size: 0.95rem; margin-top: 15px; text-align: center;">Visualization of how input text is broken into tokens before processing by an LLM.</p>
+    </div>
+  </section>
+  
+  <section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh;">
+    <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+      <h2 style="color: #7B3F00; text-align: center; margin-bottom: 20px;">Vector Whiteboard Concept</h2>
+      <img src="examples/assets/vectorwhiteboard.png" alt="Vector Whiteboard Concept" style="max-width: 80%; max-height: 70vh; object-fit: contain; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.1);">
+    </div>
+  </section>
+  
+  <section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh;">
+    <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+      <h2 style="color: #7B3F00; text-align: center; margin-bottom: 20px;">Vector Representation</h2>
+      <img src="examples/assets/VECTOR.png" alt="Vector Representation" style="max-width: 80%; max-height: 70vh; object-fit: contain; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.1);">
+    </div>
+  </section>
+  
+  <section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh;">
+    <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+      <h2 style="color: #7B3F00; text-align: center; margin-bottom: 20px;">Vector 1000 Concept</h2>
+      <img src="examples/assets/vector1000.png" alt="Vector 1000 Concept" style="max-width: 80%; max-height: 70vh; object-fit: contain; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.1);">
+    </div>
+  </section>
+  
+  <section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh;">
+    <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+      <h2 style="color: #7B3F00; text-align: center; margin-bottom: 20px;">Vector GPT 12000 Concept</h2>
+      <img src="examples/assets/vectorgpt12000.png" alt="Vector GPT 12000 Concept" style="max-width: 80%; max-height: 70vh; object-fit: contain; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.1);">
+    </div>
+  </section>
+
+  <section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh;">
+    <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+      <h2 style="color: #7B3F00; text-align: center; margin-bottom: 20px;">Accuracy on USMLE</h2>
+      <img src="examples/assets/Accuracy_on_USMLE_1.jpg" alt="Accuracy on USMLE" style="max-width: 80%; max-height: 70vh; object-fit: contain; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.1);">
+      <p style="color: #444; font-size: 0.95rem; margin-top: 15px; text-align: center;">Illustration of LLM performance benchmarks on USMLE-style questions</p>
+    </div>
+  </section>
+
+  <section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+	<div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+	  <img src="examples/assets/nejm ai gpt ai test.png" alt="NEJM AI Test" style="max-width: 100%; max-height: 60vh; border-radius: 12px; margin-bottom: 24px;" />
+	  <h2 style="color: #7B3F00; text-align: center;">AI is smarter than us and will be</h2>
+	</div>
+  </section>
+<section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+  <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+    <img src="examples/assets/nejm ai gpt ai bar graph.png" alt="NEJM AI Bar Graph" style="max-width: 100%; max-height: 60vh; border-radius: 12px; margin-bottom: 24px;" />
+    <h2 style="color: #7B3F00; text-align: center;">AI is smarter than us and will be</h2>
+  </div>
+</section>
+<section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+  <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+    <img src="examples/assets/nejm ai gpt ai line graph.png" alt="NEJM AI Line Graph" style="max-width: 100%; max-height: 60vh; border-radius: 12px; margin-bottom: 24px;" />
+    <h2 style="color: #7B3F00; text-align: center;">AI is smarter than us and will be</h2>
+  </div>
+</section>
+<section data-background="#fff3f3" data-background-transition="zoom">
+  <h2 class="r-fit-text"><span style="color:#B5533C;">Prompt</span></h2>
+  <ul style="font-size: 1em; max-width: 900px; margin: 0 auto;">
+    <li><span style="color:#B5533C; font-weight:bold;">Prompt</span> – a phrase or sentence or paragraph that is used to initiate a conversation with LLMs.</li>
+  </ul>
+</section>
+<section data-background="#fff3f3" data-background-transition="zoom">
+  <h2 class="r-fit-text"><span style="color:#B5533C;">Prompt Engineering</span></h2>
+  <ul style="font-size: 1em; max-width: 900px; margin: 0 auto;">
+    <li><span style="color:#B5533C; font-weight:bold;">Prompt engineering</span> – the process and practice of improving the quality of outputs based on better prompts.</li>
+  </ul>
+</section>
+
+        <section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+          <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+            <img data-src="examples/assets/prompting%20mechanisms.png" alt="Prompting Mechanisms" style="max-width: 100%; max-height: 40vh; border-radius: 12px; margin-bottom: 24px;" />
+            <a href="#" target="_blank" style="color:#B5533C; font-weight:bold; text-decoration:underline;">Prompting Mechanisms - Source Link</a>
+          </div>
+        </section>
+        
+        <section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+          <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+            <img data-src="examples/assets/matrix1.png" alt="Matrix 1" style="max-width: 100%; max-height: 40vh; border-radius: 12px; margin-bottom: 24px;" />
+            <h2 style="color: #7B3F00; text-align: center;">Before</h2>
+          </div>
+        </section><section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+          <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+            <img data-src="examples/assets/matrix2.png" alt="Matrix 2" style="max-width: 100%; max-height: 40vh; border-radius: 12px; margin-bottom: 24px;" />
+            <h2 style="color: #7B3F00; text-align: center;">After</h2>
+          </div>
+        </section>
+
+        <section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+              <img data-src="examples/assets/promptengineering funny.jpeg" alt="FUNNY " style="max-width: 100%; max-height: 40vh; border-radius: 12px; margin-bottom: 24px;" />
+              <a href="#" target="_blank" style="color:#B5533C; font-weight:bold; text-decoration:underline;">PROMPTING IS STILL AN IMPORTANT SKILL</a>
+            </div>
+          </section>
+
+          <section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+              <img data-src="examples/assets/gen ai terms.jpeg" alt="FUNNY " style="max-width: 100%; max-height: 40vh; border-radius: 12px; margin-bottom: 24px;" />
+              <a href="#" target="_blank" style="color:#B5533C; font-weight:bold; text-decoration:underline;">PROMPTING TERMS</a>
+            </div>
+          </section>
+        <section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+              <img data-src="examples/assets/terms you should know.jpeg" alt="FUNNY " style="max-width: 100%; max-height: 40vh; border-radius: 12px; margin-bottom: 24px;" />
+              <a href="#" target="_blank" style="color:#B5533C; font-weight:bold; text-decoration:underline;">AGENTIC TERMS</a>
+            </div>
+          </section>
+
+<section data-background="#7B3F00" data-background-transition="zoom" data-background-iframe="https://artificial-intelegence-for-qi-in-gme.github.io/Onepage/" data-background-interactive>
+  <div style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none;"></div>
+</section>
+<section data-background="#7B3F00" data-background-transition="zoom" data-background-iframe="https://www.youtube.com/embed/eLAq8yzvu8Q?start=2919" data-background-interactive>
+  <div style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none;"></div>
+</section>
+<section data-background="#7B3F00" data-background-transition="zoom" data-background-iframe="https://promptathon.iime.cloud/#" data-background-interactive>
+  <div style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none;"></div>
+</section>
+<section data-background="#7B3F00" data-background-transition="zoom" data-background-iframe="https://www.medrxiv.org/content/10.1101/2024.04.05.24305411v1" data-background-interactive>
+  <div style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none;"></div>
+</section>
+<section data-background="#7B3F00" data-background-transition="zoom" data-background-iframe="https://alexgithubusername.github.io/HealthcareAIConsulting/AISafetyChecklist.html" data-background-interactive>
+  <div style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none;"></div>
+</section>
+
+
+ <section>Types of AI Models Used</section>
+</section>
+<section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+      <img data-src="examples/assets/evolutionarytree.jpg" alt="FUNNY " style="max-width: 100%; max-height: 40vh; border-radius: 12px; margin-bottom: 24px;" />
+      <a href="#" target="_blank" style="color:#B5533C; font-weight:bold; text-decoration:underline;"></a>
+    </div>
+  </section>
+
+  <section data-auto-animate>
+    <h2 data-id="code-title">Anatomy of a Prompt: <strong>Role</strong></h2>
+    <pre data-id="code-animation"><code class="hljs markdown" data-trim data-line-numbers="1-2">
+  User:
+  You are a professional recipe developer and chef.
+    </code></pre>
+    <p>Define the Actor/Persona</p>
+  </section>
+  
+  <section data-auto-animate>
+    <h2 data-id="code-title">Anatomy of a Prompt: <strong>Task</strong></h2>
+    <pre data-id="code-animation"><code class="hljs markdown" data-trim data-line-numbers="3-3">
+  User:
+  You are a professional recipe developer and chef.
+  Create a full recipe for the specified dish.
+    </code></pre>
+    <p>Specify the Goal</p>
+  </section>
+  
+  <section data-auto-animate>
+    <h2 data-id="code-title">Anatomy of a Prompt: <strong>Rules</strong></h2>
+    <pre data-id="code-animation"><code class="hljs markdown" data-trim data-line-numbers="4-5">
+  User:
+  You are a professional recipe developer and chef.
+  Create a full recipe for the specified dish.
+  List the ingredients clearly.
+  Provide step-by-step instructions suitable for a home cook.
+    </code></pre>
+    <p>Set Constraints & Guidelines</p>
+  </section>
+  
+  <section data-auto-animate>
+    <h2 data-id="code-title">Anatomy of a Prompt: <strong>Format</strong></h2>
+    <pre data-id="code-animation"><code class="hljs markdown" data-trim data-line-numbers="6-7">
+  User:
+  You are a professional recipe developer and chef.
+  Create a full recipe for the specified dish.
+  List the ingredients clearly.
+  Provide step-by-step instructions suitable for a home cook.
+  Format the output using "Ingredients" and "Instructions" headers.
+  Output:
+    </code></pre>
+    <p>Define Output Structure</p>
+  </section>
+  
+  <section data-auto-animate>
+    <h2 data-id="code-title">Anatomy of a Prompt: <strong>Examples</strong></h2>
+    <pre data-id="code-animation"><code class="hljs markdown" data-trim data-line-numbers="8-21">
+  User:
+  You are a professional recipe developer and chef.
+  Create a full recipe for the specified dish.
+  List the ingredients clearly.
+  Provide step-by-step instructions suitable for a home cook.
+  Format the output using "Ingredients" and "Instructions" headers.
+  Output:
+  Example:
+  Input: "Chicken Salad"
+  Output:
+  Ingredients:
+  - 2 cups cooked chicken breast, diced
+  - 1/2 cup mayonnaise
+  - 1/2 cup diced celery
+  - 1/4 cup chopped red onion
+  - 1 tbsp lemon juice
+  - Salt and pepper to taste
+  
+  Instructions:
+  1. Dice the chicken, celery, and onion.
+  2. In a bowl, combine the chicken, celery, onion, mayonnaise, and lemon juice.
+  3. Mix until evenly combined.
+  4. Add salt and pepper to taste.
+  5. Chill for 30 minutes before serving.
+    </code></pre>
+    <p>Provide Concrete Illustrations</p>
+  </section>
+  
+  <section data-auto-animate>
+    <h2 data-id="code-title">Anatomy of a Prompt: <strong>Think Step by Step</strong></h2>
+    <pre data-id="code-animation"><code class="hljs markdown" data-trim data-line-numbers="25-25">
+  User:
+  You are a professional recipe developer and chef.
+  Create a full recipe for the specified dish.
+  List the ingredients clearly.
+  Provide step-by-step instructions suitable for a home cook.
+  Format the output using "Ingredients" and "Instructions" headers.
+  Output:
+  Example:
+  Input: "Chicken Salad"
+  Output:
+  Ingredients:
+  - 2 cups cooked chicken breast, diced
+  - 1/2 cup mayonnaise
+  - 1/2 cup diced celery
+  - 1/4 cup chopped red onion
+  - 1 tbsp lemon juice
+  - Salt and pepper to taste
+  
+  Instructions:
+  1. Dice the chicken, celery, and onion.
+  2. In a bowl, combine the chicken, celery, onion, mayonnaise, and lemon juice.
+  3. Mix until evenly combined.
+  4. Add salt and pepper to taste.
+  5. Chill for 30 minutes before serving.
+  Think step by step through prep, combining, seasoning, and chilling.
+    </code></pre>
+    <p>Outline Reasoning Process</p>
+  </section>
+  
+  <section data-auto-animate>
+    <h2 data-id="code-title">Anatomy of a Prompt: <strong>Repeat the Task</strong></h2>
+    <pre data-id="code-animation"><code class="hljs markdown" data-trim data-line-numbers="26-26">
+  User:
+  You are a professional recipe developer and chef.
+  Create a full recipe for the specified dish.
+  List the ingredients clearly.
+  Provide step-by-step instructions suitable for a home cook.
+  Format the output using "Ingredients" and "Instructions" headers.
+  Output:
+  Example:
+  Input: "Chicken Salad"
+  Output:
+  Ingredients:
+  - 2 cups cooked chicken breast, diced
+  - 1/2 cup mayonnaise
+  - 1/2 cup diced celery
+  - 1/4 cup chopped red onion
+  - 1 tbsp lemon juice
+  - Salt and pepper to taste
+  
+  Instructions:
+  1. Dice the chicken, celery, and onion.
+  2. In a bowl, combine the chicken, celery, onion, mayonnaise, and lemon juice.
+  3. Mix until evenly combined.
+  4. Add salt and pepper to taste.
+  5. Chill for 30 minutes before serving.
+  Think step by step through prep, combining, seasoning, and chilling.
+  You are a chef making an ingredient list and instructions:
+    </code></pre>
+    <p>Reinforce Clarity & Accuracy</p>
+  </section>
+  
+
+<section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+  <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+    <img data-src="examples/assets/prompt.png" alt="Prompt Example" style="max-width: 100%; max-height: 60vh; border-radius: 12px; margin-bottom: 24px;" />
+    <h2 style="color: #7B3F00; text-align: center;">Delimieters: [ ], { }, ***, ##</h2>
+  </div>
+</section>
+
+
+
+
+  <!-- CORRECTLY PLACED TEACHING SLIDES START HERE -->
+  <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+    <h2>Prompt Components</h2>
+    <p>RTRFETR...</p>
+    <div class="r-hstack justify-center">
+      <div data-id="box1" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+      <div data-id="box2" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+      <div data-id="box3" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+      <div data-id="box4" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+      <div data-id="box5" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+      <div data-id="box6" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+      <div data-id="box7" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+    </div>
+  </section>
+  <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+    <div class="r-hstack justify-center">
+      <div data-id="box1" data-auto-animate-delay="0" style="background: cyan; width: 120px; height: 80px; margin: 10px;"></div>
+      <div data-id="box2" data-auto-animate-delay="0.05" style="background: magenta; width: 120px; height: 80px; margin: 10px;"></div>
+      <div data-id="box3" data-auto-animate-delay="0.1" style="background: yellow; width: 120px; height: 80px; margin: 10px;"></div>
+      <div data-id="box4" data-auto-animate-delay="0.15" style="background: limegreen; width: 120px; height: 80px; margin: 10px;"></div>
+      <div data-id="box5" data-auto-animate-delay="0.2" style="background: orange; width: 120px; height: 80px; margin: 10px;"></div>
+      <div data-id="box6" data-auto-animate-delay="0.25" style="background: violet; width: 120px; height: 80px; margin: 10px;"></div>
+      <div data-id="box7" data-auto-animate-delay="0.3" style="background: #00CED1; width: 120px; height: 80px; margin: 10px;"></div>
+    </div>
+    <div class="prompt-structure"> <h1 class="r-fit-text">Prompt Structure:</h1>
+      <b>Role:</b> Define the Actor/Persona<br>
+      Task: Specify the Goal<br>
+      Rules: Set Constraints & Guidelines<br>
+      Format: Define Output Structure<br>
+      Examples: Provide Concrete Illustrations<br>
+      Think Step by Step: Outline Reasoning Process<br>
+      Repeat the Task: Reinforce Clarity & Accuracy<br>
+    </div>
+  </section>
+  <section data-background="cyan" data-background-transition="zoom">
+    <h2>1. Role</h2>
+    <p>Example: "You are a Hospitalist with 20 years of experience, an expert diagnostician, and follow all best practices for deep and reflective care. Your task is to construct a Differential Diagnosis (DDx)."</p>
+    <p class="fragment"><em>Define the persona or expertise the LLM should adopt. This sets the context, tone, and style of the response. Emphasize the critical nature of DDx.</em></p>
+  </section>
+    <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+      <h2>Prompt Components</h2>
+      <p>RTRFETR...</p>
+      <div class="r-hstack justify-center">
+        <div data-id="box1" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+        <div data-id="box2" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+        <div data-id="box3" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+        <div data-id="box4" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+        <div data-id="box5" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+        <div data-id="box6" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+        <div data-id="box7" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+      </div>
+    </section>
+    <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+      <div class="r-hstack justify-center">
+        <div data-id="box1" data-auto-animate-delay="0" style="background: cyan; width: 120px; height: 80px; margin: 10px;"></div>
+        <div data-id="box2" data-auto-animate-delay="0.05" style="background: magenta; width: 120px; height: 80px; margin: 10px;"></div>
+        <div data-id="box3" data-auto-animate-delay="0.1" style="background: yellow; width: 120px; height: 80px; margin: 10px;"></div>
+        <div data-id="box4" data-auto-animate-delay="0.15" style="background: limegreen; width: 120px; height: 80px; margin: 10px;"></div>
+        <div data-id="box5" data-auto-animate-delay="0.2" style="background: orange; width: 120px; height: 80px; margin: 10px;"></div>
+        <div data-id="box6" data-auto-animate-delay="0.25" style="background: violet; width: 120px; height: 80px; margin: 10px;"></div>
+        <div data-id="box7" data-auto-animate-delay="0.3" style="background: #00CED1; width: 120px; height: 80px; margin: 10px;"></div>
+      </div>
+      <div class="prompt-structure"> <h1 class="r-fit-text">Prompt Structure:</h1>
+        <b>Role:</b> Define the Actor/Persona<br>
+        Task: Specify the Goal<br>
+        Rules: Set Constraints & Guidelines<br>
+        Format: Define Output Structure<br>
+        Examples: Provide Concrete Illustrations<br>
+        Think Step by Step: Outline Reasoning Process<br>
+        Repeat the Task: Reinforce Clarity & Accuracy<br>
+      </div>
+    </section>
+  <section data-background="magenta" data-background-transition="zoom">
+    <h2>2. Task</h2>
+    <p>Example: "For a given medical syndrome, succinctly described in the 'clinical problem representation' (demarcated by '[]'), evaluate and rank various potential causes. The ranking should range from 1 (most likely) to 15 (least likely)." <br> <em>(Context: The input 'clinical problem representation' will be a one-liner like 'diagnosis-problem-summary'.)</em></p>
+    <p class="fragment"><em>Clearly specify what the LLM needs to accomplish. Be specific, action-oriented, and unambiguous.</em></p>
+  </section>
+    <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+      <h2>Prompt Components</h2>
+      <p>RTRFETR...</p>
+      <div class="r-hstack justify-center">
+        <div data-id="box1" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+        <div data-id="box2" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+        <div data-id="box3" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+        <div data-id="box4" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+        <div data-id="box5" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+        <div data-id="box6" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+        <div data-id="box7" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+      </div>
+    </section>
+    <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+      <div class="r-hstack justify-center">
+        <div data-id="box1" data-auto-animate-delay="0" style="background: cyan; width: 120px; height: 80px; margin: 10px;"></div>
+        <div data-id="box2" data-auto-animate-delay="0.05" style="background: magenta; width: 120px; height: 80px; margin: 10px;"></div>
+        <div data-id="box3" data-auto-animate-delay="0.1" style="background: yellow; width: 120px; height: 80px; margin: 10px;"></div>
+        <div data-id="box4" data-auto-animate-delay="0.15" style="background: limegreen; width: 120px; height: 80px; margin: 10px;"></div>
+        <div data-id="box5" data-auto-animate-delay="0.2" style="background: orange; width: 120px; height: 80px; margin: 10px;"></div>
+        <div data-id="box6" data-auto-animate-delay="0.25" style="background: violet; width: 120px; height: 80px; margin: 10px;"></div>
+        <div data-id="box7" data-auto-animate-delay="0.3" style="background: #00CED1; width: 120px; height: 80px; margin: 10px;"></div>
+      </div>
+      <div class="prompt-structure"> <h1 class="r-fit-text">Prompt Structure:</h1>
+        <b>Role:</b> Define the Actor/Persona<br>
+        Task: Specify the Goal<br>
+        Rules: Set Constraints & Guidelines<br>
+        Format: Define Output Structure<br>
+        Examples: Provide Concrete Illustrations<br>
+        Think Step by Step: Outline Reasoning Process<br>
+        Repeat the Task: Reinforce Clarity & Accuracy<br>
+      </div>
+    </section>
+  <section data-background="yellow" data-background-transition="zoom" style="color: #000;">
+    <h2>3. Rules</h2>
+    <p>Example: "You MUST use structured thinking with the VITAMINSABCDEK mnemonic. ONLY use the provided 'clinical problem representation' for diagnosis. Output MUST be JSON as specified. Each category needs a 'Description' of relevant conditions and a 'Likelihood' rank (1-15). Ratings must be meticulous and reflect deep understanding. Refer to 'Detailed Category Descriptions' (Vascular, Infective, etc.) for definitions."</p>
+    <p class="fragment"><em>Set constraints, guidelines, or negative constraints (what *not* to do) that the LLM must adhere to. This helps narrow the scope and improve precision.</em></p>
+  </section>
+    <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+      <h2>Prompt Components</h2>
+      <p>RTRFETR...</p>
+      <div class="r-hstack justify-center">
+        <div data-id="box1" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+        <div data-id="box2" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+        <div data-id="box3" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+        <div data-id="box4" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+        <div data-id="box5" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+        <div data-id="box6" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+        <div data-id="box7" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+      </div>
+    </section>
+    <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+      <div class="r-hstack justify-center">
+        <div data-id="box1" data-auto-animate-delay="0" style="background: cyan; width: 120px; height: 80px; margin: 10px;"></div>
+        <div data-id="box2" data-auto-animate-delay="0.05" style="background: magenta; width: 120px; height: 80px; margin: 10px;"></div>
+        <div data-id="box3" data-auto-animate-delay="0.1" style="background: yellow; width: 120px; height: 80px; margin: 10px;"></div>
+        <div data-id="box4" data-auto-animate-delay="0.15" style="background: limegreen; width: 120px; height: 80px; margin: 10px;"></div>
+        <div data-id="box5" data-auto-animate-delay="0.2" style="background: orange; width: 120px; height: 80px; margin: 10px;"></div>
+        <div data-id="box6" data-auto-animate-delay="0.25" style="background: violet; width: 120px; height: 80px; margin: 10px;"></div>
+        <div data-id="box7" data-auto-animate-delay="0.3" style="background: #00CED1; width: 120px; height: 80px; margin: 10px;"></div>
+      </div>
+      <div class="prompt-structure"> <h1 class="r-fit-text">Prompt Structure:</h1>
+        <b>Role:</b> Define the Actor/Persona<br>
+        Task: Specify the Goal<br>
+        Rules: Set Constraints & Guidelines<br>
+        Format: Define Output Structure<br>
+        Examples: Provide Concrete Illustrations<br>
+        Think Step by Step: Outline Reasoning Process<br>
+        Repeat the Task: Reinforce Clarity & Accuracy<br>
+      </div>
+    </section>
+  <section data-background="limegreen" data-background-transition="zoom" style="color: #000;">
+    <h2>4. Format</h2>
+    <p>Example: "Provide assessments in a structured JSON format. See 'Example Format' for the required JSON structure (main 'VITAMINNSABCDEK' key, then nested objects for each category with 'Description' and 'Likelihood'/'Rank')."</p>
+    <pre><code class="json" style="font-size: 0.6em;">
+  {
+    "VITAMINNSABCDEK": {
+      "Vascular": { "Description": "...", "Likelihood": "..." },
+      // ... other categories ...
+      "Karyotype": { "Description": "...", "Likelihood": "..." }
+    }
+  }
+    </code></pre>
+    <p class="fragment"><em>Define the desired structure, layout, or type of the output. This makes the output more usable.</em></p>
+  </section>
+    <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+      <h2>Prompt Components</h2>
+      <p>RTRFETR...</p>
+      <div class="r-hstack justify-center">
+        <div data-id="box1" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+        <div data-id="box2" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+        <div data-id="box3" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+        <div data-id="box4" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+        <div data-id="box5" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+        <div data-id="box6" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+        <div data-id="box7" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+      </div>
+    </section>
+    <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+      <div class="r-hstack justify-center">
+        <div data-id="box1" data-auto-animate-delay="0" style="background: cyan; width: 120px; height: 80px; margin: 10px;"></div>
+        <div data-id="box2" data-auto-animate-delay="0.05" style="background: magenta; width: 120px; height: 80px; margin: 10px;"></div>
+        <div data-id="box3" data-auto-animate-delay="0.1" style="background: yellow; width: 120px; height: 80px; margin: 10px;"></div>
+        <div data-id="box4" data-auto-animate-delay="0.15" style="background: limegreen; width: 120px; height: 80px; margin: 10px;"></div>
+        <div data-id="box5" data-auto-animate-delay="0.2" style="background: orange; width: 120px; height: 80px; margin: 10px;"></div>
+        <div data-id="box6" data-auto-animate-delay="0.25" style="background: violet; width: 120px; height: 80px; margin: 10px;"></div>
+        <div data-id="box7" data-auto-animate-delay="0.3" style="background: #00CED1; width: 120px; height: 80px; margin: 10px;"></div>
+      </div>
+      <div class="prompt-structure"> <h1 class="r-fit-text">Prompt Structure:</h1>
+        <b>Role:</b> Define the Actor/Persona<br>
+        Task: Specify the Goal<br>
+        Rules: Set Constraints & Guidelines<br>
+        Format: Define Output Structure<br>
+        Examples: Provide Concrete Illustrations<br>
+        Think Step by Step: Outline Reasoning Process<br>
+        Repeat the Task: Reinforce Clarity & Accuracy<br>
+      </div>
+    </section>
+  <section data-background="orange" data-background-transition="zoom" style="color: #000;">
+    <h2>5. Examples</h2>
+    <p>Example (Full Input/Output): <br>
+      <strong>Input:</strong> "A patient presents with sudden onset of severe headache, blurred vision, and dizziness."<br>
+      <strong>Output (JSON):</strong><br>
+    <pre><code class="json" style="font-size: 0.5em; text-align: left;">
+  {
+  "VITAMINNSABCDEK": {
+    "Vascular": {"Description": "Vertebrobasilar insufficiency...", "Rank": 1},
+    "Infective/Post-infective": {"Description": "Viral labyrinthitis...", "Rank": 5},
+    // ... (Full example from prompt) ...
+    "Karyotype": {"Description": "Turner syndrome...", "Rank": 15}
+  }}
+    </code></pre></p>
+    <p class="fragment"><em>Provide few-shot examples (input/output pairs) to illustrate the desired behavior, especially for complex tasks or specific formatting.</em></p>
+  </section>
+    <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+      <h2>Prompt Components</h2>
+      <p>RTRFETR...</p>
+      <div class="r-hstack justify-center">
+        <div data-id="box1" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+        <div data-id="box2" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+        <div data-id="box3" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+        <div data-id="box4" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+        <div data-id="box5" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+        <div data-id="box6" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+        <div data-id="box7" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+      </div>
+    </section>
+    <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+      <div class="r-hstack justify-center">
+        <div data-id="box1" data-auto-animate-delay="0" style="background: cyan; width: 120px; height: 80px; margin: 10px;"></div>
+        <div data-id="box2" data-auto-animate-delay="0.05" style="background: magenta; width: 120px; height: 80px; margin: 10px;"></div>
+        <div data-id="box3" data-auto-animate-delay="0.1" style="background: yellow; width: 120px; height: 80px; margin: 10px;"></div>
+        <div data-id="box4" data-auto-animate-delay="0.15" style="background: limegreen; width: 120px; height: 80px; margin: 10px;"></div>
+        <div data-id="box5" data-auto-animate-delay="0.2" style="background: orange; width: 120px; height: 80px; margin: 10px;"></div>
+        <div data-id="box6" data-auto-animate-delay="0.25" style="background: violet; width: 120px; height: 80px; margin: 10px;"></div>
+        <div data-id="box7" data-auto-animate-delay="0.3" style="background: #00CED1; width: 120px; height: 80px; margin: 10px;"></div>
+      </div>
+      <div class="prompt-structure"> <h1 class="r-fit-text">Prompt Structure:</h1>
+        <b>Role:</b> Define the Actor/Persona<br>
+        Task: Specify the Goal<br>
+        Rules: Set Constraints & Guidelines<br>
+        Format: Define Output Structure<br>
+        Examples: Provide Concrete Illustrations<br>
+        Think Step by Step: Outline Reasoning Process<br>
+        Repeat the Task: Reinforce Clarity & Accuracy<br>
+      </div>
+    </section>
+  <section data-background="violet" data-background-transition="zoom">
+    <h2>6. Think Step by Step</h2>
+    <p>Example: "1. Analyze the input 'Clinical Problem Representation'. 2. Systematically go through each category of VITAMINSABCDEK, referring to 'Detailed Category Descriptions'. 3. For each category, list relevant conditions/descriptions and assign a likelihood rank (1-15). 4. Assemble this information into the specified JSON format."</p>
+    <p class="fragment"><em>Encourage the LLM to break down its reasoning process (Chain of Thought). This often leads to more accurate, detailed, and logical responses.</em></p>
+  </section>
+    <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+      <h2>Prompt Components</h2>
+      <p>RTRFETR...</p>
+      <div class="r-hstack justify-center">
+        <div data-id="box1" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+        <div data-id="box2" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+        <div data-id="box3" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+        <div data-id="box4" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+        <div data-id="box5" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+        <div data-id="box6" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+        <div data-id="box7" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+      </div>
+    </section>
+    <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+      <div class="r-hstack justify-center">
+        <div data-id="box1" data-auto-animate-delay="0" style="background: cyan; width: 120px; height: 80px; margin: 10px;"></div>
+        <div data-id="box2" data-auto-animate-delay="0.05" style="background: magenta; width: 120px; height: 80px; margin: 10px;"></div>
+        <div data-id="box3" data-auto-animate-delay="0.1" style="background: yellow; width: 120px; height: 80px; margin: 10px;"></div>
+        <div data-id="box4" data-auto-animate-delay="0.15" style="background: limegreen; width: 120px; height: 80px; margin: 10px;"></div>
+        <div data-id="box5" data-auto-animate-delay="0.2" style="background: orange; width: 120px; height: 80px; margin: 10px;"></div>
+        <div data-id="box6" data-auto-animate-delay="0.25" style="background: violet; width: 120px; height: 80px; margin: 10px;"></div>
+        <div data-id="box7" data-auto-animate-delay="0.3" style="background: #00CED1; width: 120px; height: 80px; margin: 10px;"></div>
+      </div>
+      <div class="prompt-structure"> <h1 class="r-fit-text">Prompt Structure:</h1>
+        <b>Role:</b> Define the Actor/Persona<br>
+        Task: Specify the Goal<br>
+        Rules: Set Constraints & Guidelines<br>
+        Format: Define Output Structure<br>
+        Examples: Provide Concrete Illustrations<br>
+        Think Step by Step: Outline Reasoning Process<br>
+        Repeat the Task: Reinforce Clarity & Accuracy<br>
+      </div>
+    </section>
+  <section data-background="#00CED1" data-background-transition="zoom" style="color: #000;">
+    <h2>7. Repeat the Task</h2>
+    <p>Example: "To summarize: As an expert hospitalist, construct a ranked (1-15) Differential Diagnosis using the VITAMINSABCDEK mnemonic for the provided 'Clinical Problem Representation'. Output MUST be in the specified JSON format, incorporating detailed descriptions for each category and justified likelihood rankings. Adhere strictly to the provided category definitions and examples."</p>
+    <p class="fragment"><em>Reiterate the core objective at the end of a complex prompt to ensure the LLM stays focused on the primary goal and integrates all instructions.</em></p>
+  </section>
+    <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+      <h2>Prompt Components</h2>
+      <p>RTRFETR...</p>
+      <div class="r-hstack justify-center">
+        <div data-id="box1" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+        <div data-id="box2" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+        <div data-id="box3" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+        <div data-id="box4" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+        <div data-id="box5" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+        <div data-id="box6" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+        <div data-id="box7" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+      </div>
+    </section>
+    <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+      <div class="r-hstack justify-center">
+        <div data-id="box1" data-auto-animate-delay="0" style="background: cyan; width: 120px; height: 80px; margin: 10px;"></div>
+        <div data-id="box2" data-auto-animate-delay="0.05" style="background: magenta; width: 120px; height: 80px; margin: 10px;"></div>
+        <div data-id="box3" data-auto-animate-delay="0.1" style="background: yellow; width: 120px; height: 80px; margin: 10px;"></div>
+        <div data-id="box4" data-auto-animate-delay="0.15" style="background: limegreen; width: 120px; height: 80px; margin: 10px;"></div>
+        <div data-id="box5" data-auto-animate-delay="0.2" style="background: orange; width: 120px; height: 80px; margin: 10px;"></div>
+        <div data-id="box6" data-auto-animate-delay="0.25" style="background: violet; width: 120px; height: 80px; margin: 10px;"></div>
+        <div data-id="box7" data-auto-animate-delay="0.3" style="background: #00CED1; width: 120px; height: 80px; margin: 10px;"></div>
+      </div>
+      <div class="prompt-structure"> <h1 class="r-fit-text">Prompt Structure:</h1>
+        <b>Role:</b> Define the Actor/Persona<br>
+        Task: Specify the Goal<br>
+        Rules: Set Constraints & Guidelines<br>
+        Format: Define Output Structure<br>
+        Examples: Provide Concrete Illustrations<br>
+        Think Step by Step: Outline Reasoning Process<br>
+        Repeat the Task: Reinforce Clarity & Accuracy<br>
+      </div>
+    </section>
+  <!-- CORRECTLY PLACED TEACHING SLIDES END HERE -->
+  <section>
+    <h1>My Prompt Structure: Differential Diagnosis (DDx) Generation</h1>
+  </section>
+  <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+    <h2>Prompt Components</h2>
+    <p>RTRFETR...</p>
+    <div class="r-hstack justify-center">
+      <div data-id="box1" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+      <div data-id="box2" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+      <div data-id="box3" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+      <div data-id="box4" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+      <div data-id="box5" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+      <div data-id="box6" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+      <div data-id="box7" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+    </div>
+  </section>
+  <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+    <div class="r-hstack justify-center">
+      <div data-id="box1" data-auto-animate-delay="0" style="background: cyan; width: 120px; height: 80px; margin: 10px;"></div>
+      <div data-id="box2" data-auto-animate-delay="0.05" style="background: magenta; width: 120px; height: 80px; margin: 10px;"></div>
+      <div data-id="box3" data-auto-animate-delay="0.1" style="background: yellow; width: 120px; height: 80px; margin: 10px;"></div>
+      <div data-id="box4" data-auto-animate-delay="0.15" style="background: limegreen; width: 120px; height: 80px; margin: 10px;"></div>
+      <div data-id="box5" data-auto-animate-delay="0.2" style="background: orange; width: 120px; height: 80px; margin: 10px;"></div>
+      <div data-id="box6" data-auto-animate-delay="0.25" style="background: violet; width: 120px; height: 80px; margin: 10px;"></div>
+      <div data-id="box7" data-auto-animate-delay="0.3" style="background: #00CED1; width: 120px; height: 80px; margin: 10px;"></div>
+    </div>
+    <div class="prompt-structure"> <h1 class="r-fit-text">Prompt Structure:</h1>
+      <b>Role:</b> Define the Actor/Persona<br>
+      Task: Specify the Goal<br>
+      Rules: Set Constraints & Guidelines<br>
+      Format: Define Output Structure<br>
+      Examples: Provide Concrete Illustrations<br>
+      Think Step by Step: Outline Reasoning Process<br>
+      Repeat the Task: Reinforce Clarity & Accuracy<br>
+    </div>
+  </section>
+  
+  <!-- 1. Role -->
+  <section data-background="cyan" data-background-transition="zoom">
+    <h2>1. Role: Define the Actor/Persona</h2>
+    <p><em>Set the expertise and context for the AI.</em></p>
+    <pre><code class="hljs markdown" style="font-size: 0.7em; max-height: 60vh; overflow-y: auto;">
+  // Your task is to construct a Diagnosis / Differential Diagnosis (DDx) based on a clinical problem representation. You are to ONLY focus on this section of the note and not any others. The medical decision making and differential diagnosis are the most important part of a doctors aspects of their profession and can be life or death therefor ruling out other causes is the most important job of a physician.
+  
+  // Role:
+  // HOSPITALIST WITH 20 YRS OF EXPERIENCE AND IS AN EXPERT DIAGNOSTICIAN. Follows all of the best practices for deep and reflective care.
+  // You must use structured thinking by using a pneumonic-  VITAMINSABCDEK.
+  
+  #### Task Description:
+  For a given medical syndrome described succinctly, evaluate and rank various potential causes based on their likelihood of being responsible for the syndrome. The ranking should range from 1 to 15, where 1 represents the most likely cause and 15 the least likely of causing the disease described in the 'clinical problem representation' demarcated by '[]'.
+  
+  #### Output Format:
+  Provide your assessments in a structured JSON format. Each category should include a detailed description and a likelihood rating based on the syndrome provided.
+  
+  #### Detailed Category Descriptions:
+  - **Vascular**: Pertains to diseases caused by issues with blood vessels, such as blockages or hemorrhages, and other hematological conditions.
+  - **Infective/Post-infective**: Relates to conditions that originate from infections or their long-term consequences.
+  - **Trauma**: Involves conditions resulting from physical injuries or external mechanical impacts.
+  - **Autoimmune/Allergy**: Includes diseases stemming from immune system malfunctions or allergic reactions.
+  - **Metabolic**: Concerns disorders that affect the metabolism of fats, proteins, carbohydrates, or micronutrients.
+  - **Idiopathic/Iatrogenic**: Encompasses conditions with unknown origins or those caused by medical treatments and interventions.
+  - **Neoplasia**: Involves conditions related to abnormal cell growths or cancers.
+  - **Neurologic**: Involves conditions related to peripheral or central neurologic diseases.
+  - **Social**: Pertains to conditions influenced by social factors, such as abuse or deprivation.
+  - **Alcohol**: Relates to diseases caused by excessive or prolonged alcohol consumption.
+  - **Behavioral**: Involves conditions that arise from psychological or behavioral issues.
+  - **Congenital**: Covers inborn conditions that could include elements from any of the above categories.
+  - **Degenerative/Drug**: Concerns conditions caused by tissue degeneration or adverse reactions to drugs.
+  - **Endocrine/Exocrine**: Involves disorders related to hormonal or glandular dysfunction.
+  - **Karyotype**: Pertains to genetic or chromosomal anomalies.
+  
+  #### Example Format needs to be in JSON:
+  {
+    "VITAMINNSABCDEK": {
+      "Vascular": {
+        "Description": "Diseases caused by blood vessel issues (bleed or blockage) or hematological conditions.",
+        "Likelihood": "Rank the likelihood from 1-15 of the disease being evaluated as the primary diagnosis: 1"
+      },
+      "Infective/Post-infective": {
+        "Description": "Conditions resulting from infections or their sequelae.",
+        "Likelihood": "Rank the likelihood from 1-15 of the disease being evaluated as the primary diagnosis: 5"
+      },
+      "Trauma": {
+        "Description": "Conditions caused by physical injury or mechanical factors.",
+        "Likelihood": "Rank the likelihood from 1-15 of the disease being evaluated as the primary diagnosis: 4"
+      },
+      "Autoimmune/Allergy": {
+        "Description": "Diseases related to immune system dysfunction or allergic reactions.",
+        "Likelihood": "Rank the likelihood from 1-15 of the disease being evaluated as the primary diagnosis: 8"
+      },
+      "Metabolic": {
+        "Description": "Disorders affecting metabolism of lipids, proteins, carbohydrates, or micronutrients.",
+        "Likelihood": "Rank the likelihood from 1-15 of the disease being evaluated as the primary diagnosis: 7"
+      },
+      "Idiopathic/Iatrogenic": {
+        "Description": "Conditions with unknown causes or caused by medical interventions.",
+        "Likelihood": "Rank the likelihood from 1-15 of the disease being evaluated as the primary diagnosis: 6"
+      },
+      "Neoplasia": {
+        "Description": "Conditions related to abnormal growths or cancers.",
+        "Likelihood": "Rank the likelihood from 1-15 of the disease being evaluated as the primary diagnosis: 9"
+      },
+      "Neurologic": {
+        "Description": "Conditions related to peripheral or central neurologic diseases.",
+        "Likelihood": "Rank the likelihood from 1-15 of the disease being evaluated as the primary diagnosis: 15"
+      },
+      "Social": {
+        "Description": "Conditions influenced by social factors like abuse or deprivation.",
+        "Likelihood": "Rank the likelihood from 1-15 of the disease being evaluated as the primary diagnosis: 13"
+      },
+      "Alcohol": {
+        "Description": "Diseases related to alcohol consumption.",
+        "Likelihood": 12
+      },
+      "Behavioral": {
+        "Description": "Conditions stemming from psychological or behavioral issues.",
+        "Likelihood": 11
+      },
+      "Congenital": {
+        "Description": "Inborn conditions which could encompass any of the above categories.",
+        "Likelihood": 14
+      },
+      "Degenerative/Drug": {
+        "Description": "Conditions caused by tissue degeneration or adverse drug reactions.",
+        "Likelihood": 10
+      },
+      "Endocrine/Exocrine": {
+        "Description": "Disorders involving hormonal or glandular dysfunction.",
+        "Likelihood": 3
+      },
+      "Karyotype": {
+        "Description": "Genetic or chromosomal anomalies.",
+        "Likelihood": 2
+      }
+    }
+  }
+  #### Example Input:
+  "A patient presents with sudden onset of severe headache, blurred vision, and dizziness."
+  
+  #### Example Output:
+  {
+    "VITAMINNSABCDEK": {
+      "Vascular": {
+        "Description": "Vertebrobasilar insufficiency, Carotid artery stenosis, Dissection of vertebral artery",
+        "Rank": 1
+      },
+      "Infective/Post-infective": {
+        "Description": "Viral labyrinthitis, Bacterial meningitis, Encephalitis",
+        "Rank": 5
+      },
+      "Trauma": {
+        "Description": "Concussion, Cervical spine injury, Temporal bone fracture",
+        "Rank": 4
+      },
+      "Autoimmune/Allergy": {
+        "Description": "Multiple sclerosis, Systemic lupus erythematosus, Autoimmune inner ear disease",
+        "Rank": 8
+      },
+      "Metabolic": {
+        "Description": "Hypoglycemia, Hyperglycemia, Electrolyte imbalances",
+        "Rank": 7
+      },
+      "Idiopathic/Iatrogenic": {
+        "Description": "Benign paroxysmal positional vertigo (BPPV), Idiopathic sudden sensorineural hearing loss, Drug-induced ototoxicity",
+        "Rank": 6
+      },
+      "Neoplasia": {
+        "Description": "Acoustic neuroma, Brain metastases, Meningioma",
+        "Rank": 9
+      },
+      "Neurologic": {
+        "Description": "Stroke, Multiple system atrophy, Migraine-associated vertigo",
+        "Rank": 2
+      },
+      "Social": {
+        "Description": "Anxiety disorders, Depression, Psychogenic dizziness",
+        "Rank": 13
+      },
+      "Alcohol": {
+        "Description": "Alcohol intoxication, Alcohol withdrawal, Wernicke's encephalopathy",
+        "Likelihood": 12
+      },
+      "Behavioral": {
+        "Description": "Somatization disorder, Panic attacks, Conversion disorder",
+        "Rank": 11
+      },
+      "Congenital": {
+        "Description": "Chiari malformation, Congenital sensorineural hearing loss, Usher syndrome",
+        "Rank": 14
+      },
+      "Degenerative/Drug": {
+        "Description": "Ototoxicity from medications, Age-related degeneration of vestibular function, Neurodegenerative diseases",
+        "Rank": 10
+      },
+      "Endocrine/Exocrine": {
+        "Description": "Thyroid dysfunction, Diabetes complications, Adrenal insufficiency",
+        "Rank": 3
+      },
+      "Karyotype": {
+        "Description": "Turner syndrome, Down syndrome, Klinefelter syndrome",
+        "Rank": 15
+      }
+    }
+  }
+  
+  #### Instructions:
+  Ensure that your ratings are meticulously based on the syndrome description provided. Rank the likelihood ratings accordingly, reflecting a deep understanding of the potential causes and their relevance to the described symptoms.
+  #### Clinical Problem Representation: <<<
+  ** One Liner: [
+  diagnosis-problem-summary
+  ]
+  >>>
+    </code></pre>
+  </section>
+  
+  <!-- Add a slide for the Clinical Problem Representation Input -->
+  <section data-background="#f0f0f0" style="color: #333;">
+      <h2>Input: Clinical Problem Representation</h2>
+      <p>The following 'Clinical Problem Representation' will be provided as input to the prompt:</p>
+      <pre><code class="markdown">
+  #### Clinical Problem Representation: <<<
+  ** One Liner: [ 
+    diagnosis-problem-summary 
+  ]
+  >>>
+      </code></pre>
+      <p class="fragment"><em>This is where the specific patient case summary (one-liner) is inserted for the AI to process.</em></p>
+  </section>
+
+
+
+
+                  <section data-auto-animate>
+    <h2 data-id="code-title">System Prompt vs 
+      User Prompt</h2>
+    <pre data-id="code-animation"><code class="hljs markdown" data-trim data-line-numbers>
+  # System Prompt
+  A hidden instruction that sets the AI's behavior, 
+  tone, and boundaries. Custom GPT's, Anthroic Projects,
+  AI Studio Google
+  Example: Role baesd with instructions. 
+  "You are a helpful medical assistant and write broad 
+  differentials using VITAMINNS"
+  
+  # User Prompt
+  The visible input or question provided by the user. 
+  Example: "Write a differential for RUQ PAIN."
+    </code></pre>
+    <p><strong>Explanation:</strong> <b class="r-fit-text">System prompts guide the AI's overall behavior and are set by developers. <b>User prompts</b> are the direct instructions or questions given by the end user. Both work together to shape the AI's responses.</p>
+  </b></section>
+  </section><section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+      <img data-src="examples/assets/RUQ.png" alt="RUQ" style="max-width: 100%; max-height: 40vh; border-radius: 12px; margin-bottom: 24px;" />
+      <h2 style="color: #7B3F00; text-align: center;">SYSTEM PROMPT</h2>
+    </div>
+  </section>
+
+ 
+  <section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+      <img data-src="examples/assets/Advanced Prompting Overleaf.jpg" alt="Advanced Prompting Overleaf" style="max-width: 100%; max-height: 40vh; border-radius: 12px; margin-bottom: 24px;" />
+      <a href="#" target="_blank" style="color:#B5533C; font-weight:bold; text-decoration:underline;">Advanced Prompting Overleaf - Source Link</a>
+    </div>
+  </section>
+  <section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh;">
+    <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+      <img data-src="examples/assets/resume.png" alt="Resume Preview" style="max-width: 100%; max-height: 40vh; border-radius: 12px; margin-bottom: 24px;" />
+      <a href="#" target="_blank" style="color:#B5533C; font-weight:bold; text-decoration:underline;">Resume Preview - Source Link</a>
+    </div>
+  </section>
+  
+  <section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+      <img data-src="examples/assets/Advanced Prompting C.jpg" alt="Advanced Prompting C" style="max-width: 100%; max-height: 40vh; border-radius: 12px; margin-bottom: 24px;" />
+      <a href="#" target="_blank" style="color:#B5533C; font-weight:bold; text-decoration:underline;">Advanced Prompting C - Source Link</a>
+    </div>
+  </section>
+  
+  <section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+      <img data-src="examples/assets/cot%20fig%201.png" alt="Cot Figure 1" style="max-width: 100%; max-height: 40vh; border-radius: 12px; margin-bottom: 24px;" />
+      <a href="#" target="_blank" style="color:#B5533C; font-weight:bold; text-decoration:underline;">Cot Figure 1 - Source Link</a>
+    </div>
+  </section>
+  <section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+      <img data-src="examples/assets/cot.png" alt="Cot Diagram" style="max-width: 100%; max-height: 40vh; border-radius: 12px; margin-bottom: 24px;" />
+      <a href="#" target="_blank" style="color:#B5533C; font-weight:bold; text-decoration:underline;">Cot Diagram - Source Link</a>
+    </div>
+  </section>
+  <section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+      <img data-src="examples/assets/medicina-60-00148-g003-550.jpg" alt="Medicina Figure" style="max-width: 100%; max-height: 40vh; border-radius: 12px; margin-bottom: 24px;" />
+      <a href="#" target="_blank" style="color:#B5533C; font-weight:bold; text-decoration:underline;">Medicina Figure - Source Link</a>
+    </div>
+  </section>
+  
+  <section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh;">
+    <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+      <video controls style="max-width: 100%; max-height: 60vh; border-radius: 12px; margin-bottom: 24px; background: #000;">
+        <source src="https://www.dailydoseofds.com/content/media/2024/10/akshay_pachaar---1800143490653032524---Video-1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <h2 style="color: #7B3F00; text-align: center;">Clinical AI in Action</h2>
+    </div>
+  </section>
+  
+  <section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh;">
+    <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+      <iframe width="800" height="450" src="https://www.youtube.com/embed/3OZunnSvYXM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 12px; margin-bottom: 24px;"></iframe>
+      <h2 style="color: #7B3F00; text-align: center;">YouTube Video Example</h2>
+    </div>
+  </section>
+  
+  <section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh;">
+    <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+      <iframe width="800" height="450" src="https://www.youtube.com/embed/1wTul0NjBpc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 12px; margin-bottom: 24px;"></iframe>
+      <h2 style="color: #7B3F00; text-align: center;">YouTube Video Example</h2>
+    </div>
+  </section>
+  <section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh;">
+    <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+      <iframe width="800" height="450" src="https://www.youtube.com/embed/DPl46_9WCi0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 12px; margin-bottom: 24px;"></iframe>
+      <h2 style="color: #7B3F00; text-align: center;">Advanced Uses of AI</h2>
+    </div>
+  </section>
+  <section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh;">
+    <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+      <img data-src="examples/assets/Poster.png" alt="Poster Presentation" style="max-width: 100%; max-height: 40vh; border-radius: 12px; margin-bottom: 24px;" />
+      <a href="#" target="_blank" style="color:#B5533C; font-weight:bold; text-decoration:underline;">Poster Presentation - Source Link</a>
+    </div>
+  </section>
+  <section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh;">
+    <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+      <img data-src="examples/assets/Curriculum.png" alt="Curriculum Overview" style="max-width: 100%; max-height: 40vh; border-radius: 12px; margin-bottom: 24px;" />
+      <a href="#" target="_blank" style="color:#B5533C; font-weight:bold; text-decoration:underline;">Curriculum Overview - Source Link</a>
+    </div>
+  </section>
+  
+  
+  <section data-background="#7B3F00" data-background-transition="zoom">
+    <h2>Explore Leading LLM Platforms</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 48px; justify-content: center; align-items: flex-end; margin-top: 40px;">
+      <a href="https://chatgpt.com/" target="_blank" style="display: flex; flex-direction: column; align-items: center; text-decoration: none;">
+        <img src="examples/assets/ChatGPT-Logo.png" alt="OpenAI ChatGPT" style="height: 90px; width: 90px; object-fit: contain; margin-bottom: 12px;" />
+        <span style="font-weight: bold; color: #222;">OpenAI ChatGPT</span>
+      </a>
+      <a href="https://claude.ai/" target="_blank" style="display: flex; flex-direction: column; align-items: center; text-decoration: none;">
+        <img src="examples/assets/Anthropic-AI.png" alt="Anthropic Claude" style="height: 90px; width: 90px; object-fit: contain; margin-bottom: 12px;" />
+        <span style="font-weight: bold; color: #222;">Anthropic Claude</span>
+      </a>
+      <a href="https://aistudio.google.com/prompts/new_chat" target="_blank" style="display: flex; flex-direction: column; align-items: center; text-decoration: none;">
+        <img src="examples/assets/gemini-logo.png" alt="Google Gemini" style="width: 270px; height: 270px; margin-bottom: 12px;" />
+        <span style="font-weight: bold; color: #222;">Google Gemini (AI Studio)</span>
+      </a>
+    </div>
+    <p style="font-size:0.9em; color:#888; margin-top: 18px;">Click a logo to visit the platform in a new tab.</p>
+  </section>
+  
+  <section data-background="#7B3F00" data-background-transition="zoom">
+    <div style="width: 90vw; max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 70vh;">
+      <iframe data-src="https://lmarena.ai/?leaderboard" style="width:100%; height:70vh; border:0; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); background: #fff;" title="LMSYS Arena" allowfullscreen></iframe>
+      <a href="https://lmarena.ai/?leaderboard" target="_blank" style="padding: 10px; text-align: center; background: #f5f5f5; font-weight: bold; text-decoration: none; color: #222; border-radius: 0 0 12px 12px; margin-top: 12px; display: inline-block;">LMSYS Arena Leaderboard</a>
+    </div>
+    <p style="font-size:0.9em; color:#eee; margin-top: 18px;">Leaderboard for LLM model comparison and exploration.</p>
+  </section>
+  
+  
+
+  <section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh;">
+    <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+      <video controls style="max-width: 100%; max-height: 60vh; border-radius: 12px; margin-bottom: 24px; background: #000;">
+        <source src="examples/assets/recording.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <h2 style="color: #7B3F00; text-align: center;">Researcher</h2>
+    </div>
+  </section>
+  
+  <section>Evaluating Prompt Outputs</section>
+  <section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh;">
+    <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+      <img data-src="examples/assets/safetousegpt.png" alt="Safe to Use GPT" style="max-width: 100%; max-height: 40vh; border-radius: 12px; margin-bottom: 24px;" />
+      <a href="#" target="_blank" style="color:#B5533C; font-weight:bold; text-decoration:underline;">Safe to Use GPT - Source Link</a>
+    </div>
+  </section>
+  <section data-background="#f9f9f9" data-background-transition="fade" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh;">
+    <div style="background: #ffffff; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.1); padding: 32px; max-width: 860px; width: 90%; line-height: 1.6; font-size: 1.25rem;">
+      <p>
+        If students are given an assignment using <span style="background-color: #ffecb3; font-weight: bold;">ChatGPT</span>, be sure to follow it with a 
+        <span style="background-color: #c8e6c9; font-weight: bold;">discussion</span> or 
+        <span style="background-color: #c5cae9; font-weight: bold;">debrief</span> to clarify any 
+        <span style="background-color: #ffcdd2; font-weight: bold;">misconceptions</span>, 
+        <span style="background-color: #ffcdd2; font-weight: bold;">mistakes</span>, or 
+        <span style="background-color: #ffcdd2; font-weight: bold;">omissions</span> in the information the students receive.
+      </p>
+    </div>
+  </section>
+  
+  <section>Iterative Prompt Design</section>
+
+  <section>Prompt Engineering Tools</section>
+  <section data-background="#ffffff" data-background-transition="fade" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh;">
+    <div style="max-width: 900px; width: 90%; padding: 32px; border-radius: 16px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); font-size: 1.1rem; line-height: 1.6;">
+      <h2 style="text-align: center; margin-bottom: 24px;">Prompt Engineering Tools</h2>
+
+      <ul style="list-style: none; padding: 0;">
+        <li style="margin-bottom: 16px;">
+          🔧 <strong><a href="https://promptbuilder.streamlit.app/" target="_blank" style="color:#1a73e8;">PromptBuilder</a></strong> — Visual tool to build and test prompts via a clean Streamlit interface.
+        </li>
+        <li style="margin-bottom: 16px;">
+          🧠 <strong><a href="https://www.you.ai/" target="_blank" style="color:#1a73e8;">You.ai</a></strong> — Explore, create, and fine-tune AI assistants with modular control.
+        </li>
+        <li style="margin-bottom: 16px;">
+          🧪 <strong><a href="https://colab.research.google.com/github/Skquark/structured-prompt-generator/blob/main/Structured_Prompt_Generator.ipynb" target="_blank" style="color:#1a73e8;">Structured Prompt Generator (Colab)</a></strong> — Notebook-based prompt builder with code-based customization.
+        </li>
+        <li style="margin-bottom: 16px;">
+          📊 <strong><a href="https://docs.google.com/spreadsheets/d/19jzLgRruG9kjUQNKtCg1ZjdD6l6weA6qRXG5zLIAhC8/edit?gid=150872633#gid=150872633" target="_blank" style="color:#1a73e8;">Google Sheets Generator</a></strong> — Spreadsheet interface for organizing, building, and testing prompts.
+        </li>
+        <li style="margin-bottom: 16px;">
+          💡 <strong><a href="https://www.prompthackers.co/chatgpt-prompt-generator?via=topaitools" target="_blank" style="color:#1a73e8;">Prompt Hackers</a></strong> — Template-driven ChatGPT prompt generator with built-in logic.
+        </li>
+        <!-- Additional resources inserted below -->
+        <li style="margin-bottom: 16px;">
+          🧬 <strong><a href="https://github.com/anthropics/courses/blob/master/real_world_prompting/02_medical_prompt.ipynb" target="_blank" style="color:#1a73e8;">Anthropic Medical Prompt Notebook</a></strong> — Jupyter notebook for prompt engineering applied to medical reasoning.
+        </li>
+        <li style="margin-bottom: 16px;">
+          🎥 <strong><a href="https://www.cloudskillsboost.google/course_templates/1081/video/532000" target="_blank" style="color:#1a73e8;">Google Cloud Skills Boost (Video)</a></strong> — Instructional video on building and deploying GenAI solutions for healthcare scenarios.
+        </li>
+        <li>
+          📄 <strong><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4475995" target="_blank" style="color:#1a73e8;">SSRN: Assigning AI</a></strong> — Research paper describing seven structured ways to integrate GenAI into learning assignments.
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh;">
+    <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+      <img data-src="examples/assets/CBME Applied.png" alt="CBME Applied" style="max-width: 100%; max-height: 40vh; border-radius: 12px; margin-bottom: 24px;" />
+      <a href="#" target="_blank" style="color:#B5533C; font-weight:bold; text-decoration:underline;">CBME Applied - Source Link</a>
+    </div>
+  </section>
+  
+  <section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh;">
+    <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+      <img data-src="examples/assets/dcmeasurement.png" alt="Diagnostic Calibration Measurement" style="max-width: 100%; max-height: 40vh; border-radius: 12px; margin-bottom: 24px;" />
+      <a href="#" target="_blank" style="color:#B5533C; font-weight:bold; text-decoration:underline;" class="r-fit-text">Diagnostic Calibration Measurement - UCSF 
+        Williams CYK, Subramanian CR, Ali SS, et al. Physician- and large language model-generated hospital discharge summaries. JAMA Intern Med. Published online May 5, 2025. doi:10.1001/jamainternmed.2025.0821
+      
+    </a>
+    </div>
+  </section>
+  
+  <section>
+      <h2 class="r-fit-text">However, we note it would be a best practice for users to conduct such affirmative reviews in an effort to identify potentially discriminatory tools, as discriminatory outcomes may violate applicable civil rights law.</h2>
+      <p class="r-fit-text" >– Excerpt from the Health Data, Technology, and Interoperability: Certification Program Updates, Algorithm Transparency, and Information Sharing (HTI-1) Final Rule</p>
+  </section>
+  <section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh;">
+    <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+      <img data-src="examples/assets/01 Risk.png" alt="Risk Slide" style="max-width: 100%; max-height: 40vh; border-radius: 12px; margin-bottom: 24px;" />
+      <a href="#" target="_blank" style="color:#B5533C; font-weight:bold; text-decoration:underline;">Risk Slide - Source Link</a>
+    </div>
+  </section>
+  <section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+      <img class="r-frame r-stretch" src="examples/assets/bias 1.png" alt="AI Bias Example 1" style="max-width: 100%; max-height: 60vh; border-radius: 12px; margin-bottom: 24px; background: #fff;" />
+      <h2 style="color: #7B3F00; text-align: center;">Bias in AI: Example 1</h2>
+    </div>
+  </section>
+  <section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+      <img class="r-frame r-stretch" src="examples/assets/bias 2.png" alt="AI Bias Example 2" style="max-width: 100%; max-height: 60vh; border-radius: 12px; margin-bottom: 24px; background: #fff;" />
+      <h2 style="color: #7B3F00; text-align: center;">Bias in AI: Example 2</h2>
+    </div>
+  </section>
+  <section data-background="#7B3F00" data-background-transition="zoom" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh;">
+    <div style="background: #fff; border-radius: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.18); padding: 24px; max-width: 900px; width: 90%; display: flex; flex-direction: column; align-items: center;">
+      <img data-src="examples/assets/cognitive biases.jpeg" alt="Cognitive Biases" style="max-width: 100%; max-height: 40vh; border-radius: 12px; margin-bottom: 24px;" />
+      <a href="#" target="_blank" style="color:#B5533C; font-weight:bold; text-decoration:underline;">Cognitive Biases - Source Link</a>
+    </div>
+  </section>
+  
+  <section>Summary & Key Takeaways</section>
+
+<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+  <div class="r-hstack justify-center">
+    <div data-id="box1" data-auto-animate-delay="0" style="background: cyan; width: 120px; height: 80px; margin: 10px;"></div>
+    <div data-id="box2" data-auto-animate-delay="0.05" style="background: magenta; width: 120px; height: 80px; margin: 10px;"></div>
+    <div data-id="box3" data-auto-animate-delay="0.1" style="background: yellow; width: 120px; height: 80px; margin: 10px;"></div>
+    <div data-id="box4" data-auto-animate-delay="0.15" style="background: limegreen; width: 120px; height: 80px; margin: 10px;"></div>
+    <div data-id="box5" data-auto-animate-delay="0.2" style="background: orange; width: 120px; height: 80px; margin: 10px;"></div>
+    <div data-id="box6" data-auto-animate-delay="0.25" style="background: violet; width: 120px; height: 80px; margin: 10px;"></div>
+    <div data-id="box7" data-auto-animate-delay="0.3" style="background: #00CED1; width: 120px; height: 80px; margin: 10px;"></div>
+  </div>
+  <div class="prompt-structure"> <h1 class="r-fit-text">Prompt Structure:</h1>
+    <b>Role:</b> Define the Actor/Persona<br>
+    Task: Specify the Goal<br>
+    Rules: Set Constraints & Guidelines<br>
+    Format: Define Output Structure<br>
+    Examples: Provide Concrete Illustrations<br>
+    Think Step by Step: Outline Reasoning Process<br>
+    Repeat the Task: Reinforce Clarity & Accuracy<br>
+  </div>
+</section>
+  <section>Thank You, Let's build!</section>
+  
+  <section data-background="#7B3F00" data-background-transition="zoom" data-background-iframe="https://promptathon.iime.cloud/#" data-background-interactive>
+    <div style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none;"></div>
+  </section>
+  <section data-background="#7B3F00" data-background-transition="zoom" data-background-iframe="https://alexgithubusername.github.io/HealthcareAIConsulting/AISafetyChecklist.html" data-background-interactive>
+    <div style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none;"></div>
+  </section>
+
+<section data-background="#7B3F00" data-background-transition="zoom" data-background-iframe="https://artificial-intelegence-for-qi-in-gme.github.io/Onepage/" data-background-interactive>
+  <div style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none;"></div>
+</section>
+
+              </div>
+          </div>
+  
+          <script src="dist/reveal.js"></script>
+          <script src="plugin/notes/notes.js"></script>
+          <script src="plugin/markdown/markdown.js"></script>
+          <script src="plugin/highlight/highlight.js"></script>
+          <script>
+              // More info about initialization & config:
+              // - https://revealjs.com/initialization/
+              // - https://revealjs.com/config/
+              Reveal.initialize({
+                  hash: true,
+  
+                  // Learn about plugins: https://revealjs.com/plugins/
+                  plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+              });
+              
+          </script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.js"></script>
+   <script>
+       Reveal.initialize({
+           hash: true, // Enables deep linking to slides
+           // The 'pdf' option helps configure reveal.js for printing.
+           // It's especially useful if you want to include speaker notes.
+           pdf: true,
+
+           // To show speaker notes on a separate page in the PDF:
+           // showNotes: 'separate-page', // or true to show them below the slide
+
+           // Add other plugins as needed, e.g., for Markdown, Highlight, Notes
+           // plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+       });
+   </script>
+      </body>
+  </html>
